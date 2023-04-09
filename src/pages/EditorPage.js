@@ -1,22 +1,34 @@
-import React from "react";
+import {React, useState} from "react";
+
+import Client from "../component/Client";
+import Editor from "../component/Editor";
 
 const EditorPage = () => {
+  const [clients, setClients] = useState([{socketId: 1, username: 'Dat'}, {socketId: 2, username: 'Dat'}, {socketId: 2, username: 'Dat'}]);
   return (
-    <div className="homePageWrapper">
-      <div className="forWrapper">
-        <img src="/depauw_logo.png" alt="code-sync-logo"></img>
-        <h4 className="main-label">Paste invitation ROOM ID</h4>
-        <div className="inputGroup">
-          <input type="text" className="inputBox" placeholder="ROOM ID" />
-          <input type="text" className="inputBox" placeholder="USERNAME" />
-          <button className="btn joinBtn">Join</button>
-          <span className="createInfo">
-            If you don't have an invitation then create &nbsp;
-            <a href="" className="createNewBtn">
-              new room
-            </a>
-          </span>
+    <div className="mainWrap">
+      <div className="aside">
+        <div className="asideInner">
+          <div className="logo">
+            <img className="logoImage" src="/depauw_logo.png" alt="depauw_logo"></img>   
+          </div>
+          <h3>Connected</h3>
+          <div className="clientsList"> 
+            {
+              clients.map((client) => (
+                <Client key={client.socketId} username={client.username} />
+              ))
+            }
+
+            </div>
         </div>
+        <button className="btn copyBtn">Copy Room Id</button>
+        <button className="btn leaveBtn">Leave</button>
+
+
+      </div>
+      <div className="editorWrap">
+      <Editor />
       </div>
     </div>
   );
