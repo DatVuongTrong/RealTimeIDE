@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  height: 100vh;
 }
 
 .formWrapper {
@@ -77,7 +78,6 @@
 .mainWrap {
   display: grid;
   grid-template-columns: 220px 1fr;
-  height: 100vh;
 }
 
 .aside {
